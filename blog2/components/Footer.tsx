@@ -1,8 +1,11 @@
 import React from 'react'
+import Logo from './Logo'
 
 const Footer = () => {
   return (
-    <footer>FOOTER</footer>
+    <footer>
+      <Logo />
+    </footer>
   )
 }
 
