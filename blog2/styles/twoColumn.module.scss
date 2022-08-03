@@ -1,0 +1,27 @@
+@use "./globals.scss";
+
+.flexContainer {
+  composes: sideBySide from "./utils.module.scss";
+  gap: globals.$space-md;
+  margin: globals.$space-md 0 globals.$space-lg;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    width: 768px;
+  }
+  .sidebar {
+    width: 240px;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+  }
+  .sidebar * {
+    text-align: right;
+  }
+  .sidebar :is(div, ul) {
+    width: fit-content;
+    margin-left: auto;
+    place-items: flex-end;
+    place-content: flex-end;
+  }
+}
