@@ -1,0 +1,17 @@
+@use "./globals.scss";
+.flexContainer {
+  composes: sideBySideCenter from "./utils.module.scss";
+}
+
+.text {
+  padding-top: calc(globals.$display * 0.5);
+  padding-bottom: calc(globals.$display * 0.7);
+}
+.title {
+  font-size: globals.$display;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+.subtitle {
+  font-size: globals.$small-heading2;
+}

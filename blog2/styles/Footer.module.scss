@@ -1,0 +1,9 @@
+@use "./globals.scss";
+.wrapper {
+  padding: globals.$space-xl 0;
+  background-color: globals.$gray-10;
+}
+.flexContainer {
+  composes: sideBySideCenter from "./utils.module.scss";
+  gap: 2em;
+}

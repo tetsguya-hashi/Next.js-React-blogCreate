@@ -1,0 +1,21 @@
+@use "./globals.scss";
+.list {
+  display: flex;
+  gap: 2em;
+}
+.list a {
+  transition: all 0.3s;
+}
+@media (hover: hover) {
+  .list a:hover {
+    color: globals.$accent;
+  }
+}
+@media (hover: none) {
+  .lista a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .list a:active {
+    color: globals.$accent;
+  }
+}

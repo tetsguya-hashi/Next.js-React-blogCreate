@@ -1,0 +1,4 @@
+@use "./globals.scss";
+.flexContainer {
+  composes: spaceBetween from "./utils.module.scss";
+}

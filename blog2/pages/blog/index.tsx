@@ -1,9 +1,12 @@
 import Hero from '../../components/Hero'
 import React from 'react'
+import Container from '../../components/Container'
 
 const Blog = () => {
   return (
-    <Hero title='Blog' subtitle='Recent Posts' />
+    <Container>
+      <Hero title='Blog' subtitle='Recent Posts' />
+    </Container>
   )
 }
 
