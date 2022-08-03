@@ -1,4 +1,7 @@
+import Image from 'next/image';
 import React from 'react'
+
+import cube from '../images/cube.jpg'
 import styles from '../styles/Hero.module.scss'
 
 type Props = {
@@ -13,8 +16,14 @@ const Hero = ({ title, subtitle, imageOn = false }: Props) => {
       <div className={styles.text}>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.subtitle}>{subtitle}</p>
-        {imageOn && <figure>[画像]</figure>}
       </div>
+      {imageOn && (<figure className={styles.image}>
+        <Image
+          src={cube} alt="" layout='responsive'
+          sizes='(min-width:1152px) 576px,(min-width:768px) 50vw,100vw'
+          priority placeholder='blur'
+        />
+      </figure>)}
     </div>
   )
 }

@@ -15,3 +15,9 @@
 .subtitle {
   font-size: globals.$small-heading2;
 }
+.image {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+}
