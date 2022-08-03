@@ -5,7 +5,7 @@ import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-ic
 import styles from '../styles/social.module.scss'
 
 type Props = {
-  iconSize: string;
+  iconSize?: string;
 }
 
 const Social = (props: Props) => {
