@@ -1,0 +1,7 @@
+@use "./globals.scss";
+.stack > * + * {
+  margin-top: var(--stack-space, 1em);
+}
+.heading {
+  font-size: globals.$body;
+}
