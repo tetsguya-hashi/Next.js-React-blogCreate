@@ -60,8 +60,15 @@ const Post = (props: Props) => {
 
 export default Post
 
-export async function getStaticProps() {
-  const slug = 'micro';
+export const getStaticPaths = async () => {
+  return {
+    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    fallback: false,
+  }
+}
+
+export async function getStaticProps(context: any) {
+  const slug = context.params.slug;
   const post = await getPostBySlug(slug);
   const description = ExtractText(post.content);
   const eyecatch = post.eyecatch ?? eyecatchLocal;
