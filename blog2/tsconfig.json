@@ -22,7 +22,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "components/ConvertBody.jsx",
+    "components/PostCategories.jsx",
+    "components/PostCategories.jsx"
   ],
   "exclude": [
     "node_modules"

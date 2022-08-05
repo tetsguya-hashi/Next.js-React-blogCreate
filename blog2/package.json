@@ -11,8 +11,10 @@
   "dependencies": {
     "microcms-js-sdk": "^2.1.0",
     "next": "12.2.3",
+    "plaiceholder": "^2.4.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -20,12 +22,15 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/html-to-text": "^8.1.0",
     "@types/node": "18.6.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "date-fns": "^2.29.1",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.3",
+    "html-react-parser": "^3.0.1",
+    "html-to-text": "^8.2.1",
     "sass": "^1.54.0",
     "typescript": "4.7.4"
   }
