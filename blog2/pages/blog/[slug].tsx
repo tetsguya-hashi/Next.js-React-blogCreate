@@ -7,7 +7,7 @@ import Container from '../../components/Container';
 import PostBody from '../../components/PostBody';
 import PostHeader from '../../components/PostHeader';
 import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from '../../components/TwoColumn';
-import { getPostBySlug } from '../../lib/api';
+import { getAllSlug, getPostBySlug } from '../../lib/api';
 import ConvertBody from '../../components/ConvertBody';
 import PostCategories from '../../components/PostCategories';
 import ExtractText from '../../lib/ExtractText';
@@ -61,8 +61,10 @@ const Post = (props: Props) => {
 export default Post
 
 export const getStaticPaths = async () => {
+  const allSlugs = await getAllSlug();
+  console.log(allSlugs);
   return {
-    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    paths: allSlugs.map((path: any) => `/blog/${path.slug}`),
     fallback: false,
   }
 }

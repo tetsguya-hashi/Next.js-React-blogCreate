@@ -18,3 +18,19 @@ export async function getPostBySlug(slug: string) {
     console.log('err')
   }
 }
+
+export const getAllSlug = async (limit: number = 100) => {
+  try {
+    const slugs = await client.get({
+      //blogsから取得する
+      endpoint: 'blogs',
+      //取得するフィールドはtitle,slugで、日付順に取得、limitで件数上限を指定
+      queries: { fields: 'title,slug', orders: '-publishDate', limit: limit },
+    })
+    return slugs.contents;
+  }
+  catch (err) {
+    console.log('-- getAllSlug --');
+    console.log(err);
+  }
+}
