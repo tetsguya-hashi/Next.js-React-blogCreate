@@ -1,0 +1,14 @@
+@use "./globals.scss";
+.flexContainer {
+  composes: spaceBetween from "./utils.module.scss";
+  margin: globals.$space-lg;
+  gap: 1em;
+}
+.next {
+  margin-left: auto;
+}
+.iconText {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

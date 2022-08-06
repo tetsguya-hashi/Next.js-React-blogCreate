@@ -13,6 +13,8 @@ import PostCategories from '../../components/PostCategories';
 import ExtractText from '../../lib/ExtractText';
 import Meta from '../../components/Meta';
 import { eyecatchLocal } from '../../lib/constants';
+import { PrevNextPost } from '../../lib/PrevNextPost';
+import Paginaition from '../../components/Paginaition';
 
 type Props = {
   title: string;
@@ -21,10 +23,12 @@ type Props = {
   eyecatch: any;
   categories: string;
   description: string;
+  prevPost: any;
+  nextPost: any;
 }
 
 const Post = (props: Props) => {
-  const { title, publish, content, eyecatch, categories, description } = props
+  const { title, publish, content, eyecatch, categories, description, prevPost, nextPost } = props
   return (
     <Container>
       <Meta
@@ -53,6 +57,12 @@ const Post = (props: Props) => {
           </TwoColumnMain>
           <TwoColumnSidebar><PostCategories categories={categories} /></TwoColumnSidebar>
         </TwoColumn>
+        <Paginaition
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`}
+        />
       </article>
     </Container>
   )
@@ -62,7 +72,6 @@ export default Post
 
 export const getStaticPaths = async () => {
   const allSlugs = await getAllSlug();
-  console.log(allSlugs);
   return {
     paths: allSlugs.map((path: any) => `/blog/${path.slug}`),
     fallback: false,
@@ -76,6 +85,10 @@ export async function getStaticProps(context: any) {
   const eyecatch = post.eyecatch ?? eyecatchLocal;
   const { base64 } = await getPlaiceholder(eyecatch.url);
   eyecatch.blurDataURL = base64;
+
+  //ページネーション
+  const allSlugs = await getAllSlug();
+  const [prevPost, nextPost] = PrevNextPost(allSlugs, slug)
   return {
     props: {
       title: post.title,
@@ -84,6 +97,8 @@ export async function getStaticProps(context: any) {
       eyecatch: eyecatch,
       categories: post.categories,
       description: description,
+      prevPost: prevPost,
+      nextPost: nextPost,
     }
   }
 }
