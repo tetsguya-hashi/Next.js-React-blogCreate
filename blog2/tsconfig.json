@@ -26,7 +26,8 @@
     "components/ConvertBody.jsx",
     "components/PostCategories.jsx",
     "components/PostCategories.jsx",
-    "components/Posts.jsx"
+    "components/Posts.jsx",
+    "components/Accordion.jsx"
   ],
   "exclude": [
     "node_modules"
