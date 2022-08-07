@@ -41,7 +41,8 @@ const Post = (props: Props) => {
       <article>
         <PostHeader title={title} subtitle='Blog Article' publish={publish} />
         <figure>
-          <Image src={eyecatch.url}
+          <Image
+            src={eyecatch.url}
             alt='' layout='responsive'
             width={eyecatch.width}
             height={eyecatch.height}
@@ -71,34 +72,38 @@ const Post = (props: Props) => {
 export default Post
 
 export const getStaticPaths = async () => {
-  const allSlugs = await getAllSlug();
+  const allSlugs = await getAllSlug(5);
   return {
     paths: allSlugs.map((path: any) => `/blog/${path.slug}`),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
 export async function getStaticProps(context: any) {
   const slug = context.params.slug;
   const post = await getPostBySlug(slug);
-  const description = ExtractText(post.content);
-  const eyecatch = post.eyecatch ?? eyecatchLocal;
-  const { base64 } = await getPlaiceholder(eyecatch.url);
-  eyecatch.blurDataURL = base64;
+  if (!post) {
+    return { notFound: true }
+  } else {
+    const description = ExtractText(post.content);
+    const eyecatch = post.eyecatch ?? eyecatchLocal;
+    const { base64 } = await getPlaiceholder(eyecatch.url);
+    eyecatch.blurDataURL = base64;
 
-  //ページネーション
-  const allSlugs = await getAllSlug();
-  const [prevPost, nextPost] = PrevNextPost(allSlugs, slug)
-  return {
-    props: {
-      title: post.title,
-      publish: post.publishDate,
-      content: post.content,
-      eyecatch: eyecatch,
-      categories: post.categories,
-      description: description,
-      prevPost: prevPost,
-      nextPost: nextPost,
+    //ページネーション
+    const allSlugs = await getAllSlug();
+    const [prevPost, nextPost] = PrevNextPost(allSlugs, slug)
+    return {
+      props: {
+        title: post.title,
+        publish: post.publishDate,
+        content: post.content,
+        eyecatch: eyecatch,
+        categories: post.categories,
+        description: description,
+        prevPost: prevPost,
+        nextPost: nextPost,
+      }
     }
   }
 }

@@ -34,3 +34,17 @@ export const getAllSlug = async (limit: number = 100) => {
     console.log(err);
   }
 }
+
+export const getAllPosts = async (limit: number = 100) => {
+  try {
+    const posts = await client.get({
+      endpoint: 'blogs',
+      queries: { fields: 'title,slug,eyecatch', orders: '-publishDate', limit: limit },
+    })
+    return posts.contents;
+  }
+  catch (err) {
+    console.log('-- getAllPosts --');
+    console.log(err);
+  }
+}

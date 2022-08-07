@@ -5,10 +5,10 @@ import Link from 'next/link'
 import styles from '../styles/pagination.module.scss'
 
 type Props = {
-  prevText: string;
-  prevUrl: string;
-  nextText: string;
-  nextUrl: string;
+  prevText?: string;
+  prevUrl?: string;
+  nextText?: string;
+  nextUrl?: string;
 }
 
 const Paginaition = (props: Props) => {

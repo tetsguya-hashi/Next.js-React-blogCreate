@@ -1,0 +1,17 @@
+@use "./globals.scss";
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: globals.$space-jump;
+  margin-top: globals.$space-xs;
+  margin-bottom: globals.$space-lg;
+}
+.post h2 {
+  margin-top: 0.5em;
+  font-size: globals.$small-heading3;
+  font-weight: 400;
+}
+.post figure {
+  position: relative;
+  aspect-ratio: 16/9;
+}
