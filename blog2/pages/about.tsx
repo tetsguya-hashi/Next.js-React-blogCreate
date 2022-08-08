@@ -6,10 +6,18 @@ import Container from '../components/Container'
 import PostBody from '../components/PostBody'
 import Contact from '../components/Contact'
 import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from '../components/TwoColumn'
-import eyecatch from '../images/about.jpg'
+// import eyecatch from '../images/about.jpg'
 import Meta from '../components/Meta'
 import Accordion from '../components/Accordion'
 
+const eyecatch = {
+
+  src: 'https://images.microcms-assets.io/assets/8cd12e63f6e84e21acc39b8960ef27f6/c5add4fc39f04d12a87fabb98bff4fc1/about.jpg',
+  height: 960,
+  width: 1920,
+  blurDataURL: 'data:image/jpeg;base64,',
+
+}
 
 const About = () => {
   return (

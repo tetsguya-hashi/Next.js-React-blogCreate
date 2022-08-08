@@ -19,7 +19,7 @@ export const siteMeta: Props = {
   siteIcon: '/favicon.png'
 }
 export const eyecatchLocal = {
-  url: '/eyecatch.jpg',
+  url: 'https://images.microcms-assets.io/assets/8cd12e63f6e84e21acc39b8960ef27f6/84dbfca1f38d4d338751b6ae298c5680/eyecatch.jpg',
   width: 1920,
   height: 1280
 }

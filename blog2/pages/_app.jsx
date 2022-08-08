@@ -1,5 +1,4 @@
 import '../styles/base.scss'
-import type { AppProps } from 'next/app'
 
 import Layout from '../components/Layout'
 
@@ -8,10 +7,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false;
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
   return (
     <Layout>
-      <Component {...pageProps} />
+      {getLayout(<Component{...pageProps} />)}
     </Layout>
   )
 }

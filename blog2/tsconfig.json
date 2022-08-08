@@ -27,7 +27,8 @@
     "components/PostCategories.jsx",
     "components/PostCategories.jsx",
     "components/Posts.jsx",
-    "components/Accordion.jsx"
+    "components/Accordion.jsx",
+    "pages/_app.jsx"
   ],
   "exclude": [
     "node_modules"
